@@ -1,0 +1,2 @@
+#!/bin/bash
+printf '%s\n' . .. * | LC_COLLATE=C sort -t$'\0' -k1.1d,1.1 -k1.2n | sed -e 's/^/"/' -e 's/$/",/' -e '$s/,$/\n/'
