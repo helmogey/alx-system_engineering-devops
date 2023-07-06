@@ -1,2 +1,2 @@
 #!/bin/bash
-if test $(stat -c '%U' hello) = 'guillaume'; then sudo chown betty hello; fi
+test $(stat -c '%U' hello) = 'guillaume' -o sudo chown betty hello
