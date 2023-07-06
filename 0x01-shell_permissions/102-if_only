@@ -1,2 +1,2 @@
 #!/bin/bash
-test $(stat -c '%U' hello) = 'guillaume' -o sudo chown betty hello
+test $(stat -c '%U' hello) = 'guillaume' -o chown betty hello
