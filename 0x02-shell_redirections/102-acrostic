@@ -1,0 +1,2 @@
+#!/bin/bash
+echo -e "Acrostic: $(awk '{print substr($0,1,1)}' $filename | tr -d '\n')"
