@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e "$(awk '{print substr($0,1,1)}' $filename | tr -d '\n')"
+echo -e $(awk '{print substr($0,1,1)}' $filename | tr -d '\n')
