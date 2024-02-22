@@ -2,11 +2,6 @@
 #  Bash script that displays ls
 
 for filename in *; do
-  # Check if the filename contains a dash
-  if [[ $filename =~ "-" ]]; then
-    # Extract the part after the first dash
-    part_after_dash=${filename##*-}
-    # Print the extracted part
-    echo "$part_after_dash"
+  echo "$filename" | cut -d '-' -f2
   fi
 done
