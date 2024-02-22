@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Bash script that displays the content of the file /etc/passwd
+
+# Open the file in read mode
+while IFS=':' read -r username uid gid shell homeDir; do
+    formatted_output="The user ${username} is part of the GROUP_ID gang, lives in HOME_DIRECTORY and rides COMMAND/SHELL. USER_ID's place is protected by the passcode ********, more info about the user here: USER_ID_INFO"
+    echo "$formatted_output"
+done < /etc/passwd
