@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Bash script that displays the content of the file /etc/passwd
+
+if [[ "$(id -u)" != 0 ]]; then
+  echo "This script requires root privileges. Please run it with sudo."
+  exit 1
+fi
+
+# Open the file in read mode
+while read -r passwd; do
+  echo "$passwd" | cut -d ':' -f1,3,6
+done < /etc/passwd
