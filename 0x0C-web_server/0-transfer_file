@@ -11,8 +11,6 @@ server_ip="$2"
 username="$3"
 ssh_key="$4"
 
-
-
 # Check if enough arguments are provided
 if [ $# -lt 4 ]; then
   usage
