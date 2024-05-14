@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# The user root is, on Linux, the “superuser”
+sudo -u "$1" whoami
