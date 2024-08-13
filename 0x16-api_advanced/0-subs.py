@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""function that queries the Reddit API and returns the number"""
 import requests
 
 def number_of_subscribers(subreddit):
@@ -13,12 +14,15 @@ def number_of_subscribers(subreddit):
         int: The number of subscribers, or 0 if the subreddit is invalid.
     """
 
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
-    }
-    response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status_code == 404:
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    headers = {'User-Agent': 'your_user_agent'}  # Replace with your custom User-Agent
+
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raise an exception for error HTTP statuses
+
+        data = response.json()
+        return data['data']['subscribers']
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching data for subreddit {subreddit}: {e}")
         return 0
-    results = response.json().get("data")
-    return results.get("subscribers")
